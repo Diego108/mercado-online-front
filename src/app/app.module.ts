@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { ShareModuleModule } from './share';
+import { ShareModule } from './share';
 import { ComponentModule } from './components';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { ComponentModule } from './components';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ShareModuleModule,
+    ShareModule,
     ComponentModule
   ],
   providers: [],

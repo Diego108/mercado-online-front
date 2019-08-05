@@ -13,4 +13,4 @@ import { CategoriaService } from './services';
     CategoriaService
   ]
 })
-export class ShareModuleModule { }
+export class ShareModule { }
