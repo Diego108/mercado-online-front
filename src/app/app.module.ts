@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
-import { ShareModule } from './share';
+import { ShareModule , CategoriaService } from './share';
 import { ComponentModule } from './components';
 
 @NgModule({
@@ -13,11 +14,14 @@ import { ComponentModule } from './components';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ShareModule,
     ComponentModule
   ],
-  providers: [],
+  providers: [
+    CategoriaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

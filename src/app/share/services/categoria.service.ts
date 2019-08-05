@@ -15,6 +15,6 @@ export class CategoriaService {
 
   public findAll(): Observable<Categoria[]> {
 
-    return this.http.get<Categoria[]>(this.endpoint + '/findall' );
+    return this.http.get<Categoria[]>(this.endpoint + 'categorias/findAll' , );
   }
 }

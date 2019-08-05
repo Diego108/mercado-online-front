@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CategoriaService, Categoria } from '../../../share';
+
 @Component({
   selector: 'app-listar-categoria',
   templateUrl: './listar-categoria.component.html',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarCategoriaComponent implements OnInit {
 
-  constructor() { }
+  public categorias: Categoria[];
+
+  constructor(private categoriaService: CategoriaService) { }
 
   ngOnInit() {
+
+    this.categoriaService.findAll().subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 
 }

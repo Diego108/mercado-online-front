@@ -5,7 +5,7 @@ import { CadastrarCategoriaComponent } from './categoria/cadastrar';
 import { EditarCategoriaComponent } from './categoria/editar';
 import { ListarCategoriaComponent } from './categoria/listar';
 import { RemoverCategoriaComponent } from './categoria/remover';
-
+import { ShareModule, CategoriaService } from '../share';
 
 @NgModule({
   declarations: [
@@ -15,13 +15,17 @@ import { RemoverCategoriaComponent } from './categoria/remover';
     RemoverCategoriaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ShareModule
   ],
   exports : [
     CadastrarCategoriaComponent,
     EditarCategoriaComponent,
     ListarCategoriaComponent,
     RemoverCategoriaComponent
+  ],
+  providers : [
+    CategoriaService
   ]
 })
 export class ComponentModule { }
