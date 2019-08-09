@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { CadastrarCategoriaComponent } from './categoria/cadastrar';
 import { EditarCategoriaComponent } from './categoria/editar';
@@ -16,6 +17,7 @@ import { ShareModule, CategoriaService } from '../share';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ShareModule
   ],
   exports : [

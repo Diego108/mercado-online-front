@@ -1,1 +1,25 @@
-<p>cadastrar-categoria works!</p>
+<form>
+  <div class="form-group">
+    <input type="text" class="form-control field_categoria_nome" id="nomeCategoria" aria-describedby="emailHelp" placeholder="Insira o nome da categoria aqui." [(ngModel)]="categoria.nome" name="nome">
+  </div>
+  <div class="row_align">
+    <div class="align_btn_left">
+      <button type="submit" class="btn btn-primary btn_categoria_cadastrar" (click)="salvar()">
+          <p>
+            <i class="material-icons">
+              near_me
+            </i>
+          </p>
+      </button>
+    </div>
+    <div class="align_btn_right">
+      <a class="btn btn-dark btn_categoria_cadastrar" href="categoria/listar">
+          <p>
+            <i class="material-icons">
+              skip_previous
+            </i>
+          </p>
+      </a>
+    </div>
+</div>
+</form>

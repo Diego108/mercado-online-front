@@ -1,2 +1,47 @@
-<i class="material-icons">sentiment_satisfied</i>
-<p>listar-categoria</p>
+<i *ngIf="categorias == null" class="material-icons">sentiment_very_dissatisfied</i>
+<i *ngIf="categorias != null" class="material-icons">sentiment_satisfied</i>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of categorias">
+      <td>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input glyphicon glyphicon-ok" type="checkbox" [checked]="isSelected(item.id)" (click)="selectCheckBox(item.id)">
+          </div>
+        </div>
+      </td>
+      <td>{{item.id}}</td>
+      <td>{{item.nome}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-primary btn_categoria_list" style="color: aliceblue; height: 40px; width: 50px; margin-left: 5px;" href="categoria/cadastrar">
+  <p>
+    <i class="material-icons">
+      add_to_photos
+    </i>
+  </p>
+</a>
+<a class="btn btn-info btn_categoria_list" style="color: aliceblue; height: 40px; width: 50px; margin-left: 5px;" href="categoria/editar">
+  <p>
+    <i class="material-icons">
+        create
+    </i>
+  </p>
+</a>
+<button type="button" class="btn btn-danger btn_categoria_list"  data-toggle="modal" data-target="#modalExemplo">
+  <p>
+    <i class="material-icons">
+        delete_sweep
+    </i>
+  </p>
+</button>
+<app-remover-categoria [id]="idSelected" (categorias)="receiveEventOutput($event)"></app-remover-categoria>
