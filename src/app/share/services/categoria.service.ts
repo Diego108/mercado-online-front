@@ -32,4 +32,10 @@ export class CategoriaService {
 
     return this.http.delete<boolean>(this.endpoint + `categorias/${id}`);
   }
+
+  public editar(categoria: Categoria): Observable<Categoria> {
+
+    return this.http.put(this.endpoint + `categorias`, categoria);
+  }
+
 }

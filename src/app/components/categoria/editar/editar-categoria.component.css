@@ -1,0 +1,23 @@
+.btn_categoria_cadastrar{
+  color: aliceblue;
+  height: 40px;
+  width: 50px;
+}
+
+.field_categoria_nome {
+  margin-left: 5px;
+  width: 98%;
+}
+
+.row_align {
+  width: 98%;
+  margin-left: 5px;
+}
+
+.align_btn_left{
+  float: left;
+}
+
+.align_btn_right{
+  float: right;
+}

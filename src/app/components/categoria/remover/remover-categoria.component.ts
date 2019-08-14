@@ -25,19 +25,19 @@ export class RemoverCategoriaComponent implements OnInit {
 
     this.categoriaService.delete(this.id).subscribe(data => {
       if (data === true) {
-        this.categoriaService.findAll().subscribe( data => {
-          this.categorias.emit(data);
+        this.categoriaService.findAll().subscribe(dataA => {
+          this.categorias.emit(dataA);
         });
         this.notifierService.show({
           type: NotificationType.SHOW_SUCCESS,
           message: 'Categoria deletada com sucesso.',
         });
-      } else {
-        this.notifierService.show({
-          type: NotificationType.SHOW_WARNING,
-          message: 'Categoria não encontrada, contacte o administrador para mais informações.',
-        });
       }
+    }, error => {
+      this.notifierService.show({
+        type: NotificationType.SHOW_WARNING,
+        message: 'Categoria não encontrada, contacte o administrador para mais informações.'
+      });
     });
   }
 }

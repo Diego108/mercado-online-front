@@ -12,6 +12,7 @@ export class ListarCategoriaComponent implements OnInit {
   public idSelected: number;
   public check: boolean;
   public categorias: Categoria[];
+  public exibeEditar: boolean;
 
   constructor(private categoriaService: CategoriaService) { }
 
@@ -19,6 +20,7 @@ export class ListarCategoriaComponent implements OnInit {
 
     this.idSelected = 0;
     this.check = false;
+    this.exibeEditar = false;
 
     this.categoriaService.findAll().subscribe(
       data => {

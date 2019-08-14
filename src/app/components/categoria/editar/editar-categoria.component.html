@@ -1,1 +1,20 @@
-<p>editar-categoria works!</p>
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar categoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="nomeCategoria" aria-describedby="emailHelp" placeholder="Insira o nome da categoria aqui." [(ngModel)]="nomeCategoria" name="nome">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editarCategoria()">Sim, desejo editá-la</button>
+      </div>
+    </div>
+  </div>
+</div>

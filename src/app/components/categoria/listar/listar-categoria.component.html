@@ -23,20 +23,20 @@
   </tbody>
 </table>
 
-<a class="btn btn-primary btn_categoria_list" style="color: aliceblue; height: 40px; width: 50px; margin-left: 5px;" href="categoria/cadastrar">
+<a class="btn btn-primary btn_categoria_list" href="categoria/cadastrar">
   <p>
     <i class="material-icons">
       add_to_photos
     </i>
   </p>
 </a>
-<a class="btn btn-info btn_categoria_list" style="color: aliceblue; height: 40px; width: 50px; margin-left: 5px;" href="categoria/editar">
+<button class="btn btn-info btn_categoria_list" data-toggle="modal" data-target="#modalExemplo1">
   <p>
     <i class="material-icons">
         create
     </i>
   </p>
-</a>
+</button>
 <button type="button" class="btn btn-danger btn_categoria_list"  data-toggle="modal" data-target="#modalExemplo">
   <p>
     <i class="material-icons">
@@ -45,3 +45,4 @@
   </p>
 </button>
 <app-remover-categoria [id]="idSelected" (categorias)="receiveEventOutput($event)"></app-remover-categoria>
+<app-editar-categoria [id]="idSelected" (categorias)="receiveEventOutput($event)"></app-editar-categoria>

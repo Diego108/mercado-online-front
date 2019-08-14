@@ -93,7 +93,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
@@ -172,7 +172,13 @@
           "configurations": {
             "production": {
               "devServerTarget": "mercado-online-front:serve:production"
-            }
+            },
+            "homolog": {
+              "devServerTarget": "mercado-online-front:build:homolog"
+            },
+            "development": {
+              "devServerTarget": "mercado-online-front:build:development"
+            },
           }
         }
       }
