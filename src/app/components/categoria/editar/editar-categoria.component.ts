@@ -60,7 +60,7 @@ export class EditarCategoriaComponent implements OnInit {
     this.nomeCategoria = null;
   }
 
-  validarCampos(categoria: Categoria): boolean{
+  validarCampos(categoria: Categoria): boolean {
 
     if (categoria.id <= 0 || categoria.nome === null || categoria.nome.length === 0) {
       return false;

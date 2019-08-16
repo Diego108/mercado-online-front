@@ -1,25 +1,40 @@
 <form>
   <div class="form-group">
-    <input type="text" class="form-control field_categoria_nome" id="nomeCategoria" aria-describedby="emailHelp" placeholder="Insira o nome da categoria aqui." [(ngModel)]="categoria.nome" name="nome">
+    <div class="input-group mb-3 field_categoria_nome">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Categoria pai</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="idCategoriaPai" name="valorCategoriaPai">
+        <option [selected]="true" [value]="0"></option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">
+          {{categoria.nome}}
+        </option>
+      </select>
+    </div>
+
+    <br />
+
+    <input type="text" class="form-control field_categoria_nome" id="nomeCategoria" aria-describedby="emailHelp"
+      placeholder="Insira o nome da categoria aqui." [(ngModel)]="categoria.nome" name="nome">
   </div>
   <div class="row_align">
     <div class="align_btn_left">
       <button type="submit" class="btn btn-primary btn_categoria_cadastrar" (click)="salvar()">
-          <p>
-            <i class="material-icons">
-              near_me
-            </i>
-          </p>
+        <p>
+          <i class="material-icons">
+            near_me
+          </i>
+        </p>
       </button>
     </div>
     <div class="align_btn_right">
       <a class="btn btn-dark btn_categoria_cadastrar" href="categoria/listar">
-          <p>
-            <i class="material-icons">
-              skip_previous
-            </i>
-          </p>
+        <p>
+          <i class="material-icons">
+            skip_previous
+          </i>
+        </p>
       </a>
     </div>
-</div>
+  </div>
 </form>

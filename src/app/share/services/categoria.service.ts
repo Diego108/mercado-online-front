@@ -18,6 +18,11 @@ export class CategoriaService {
     return this.http.get<Categoria[]>(this.endpoint + 'categorias/findAll');
   }
 
+  public findByCategoriaPai(id: number): Observable<Categoria[]> {
+
+    return this.http.get<Categoria[]>(this.endpoint + `categorias/findByCategoriaPai/${id}`);
+  }
+
   public findById(id: number): Observable<Categoria> {
 
     return this.http.get<Categoria>(this.endpoint + `categorias/findById/${id}`);
@@ -25,7 +30,7 @@ export class CategoriaService {
 
   public save(categoria: Categoria): Observable<Categoria> {
 
-    return this.http.post(this.endpoint + `categorias`, categoria);
+    return this.http.post(this.endpoint + `categorias/${categoria.idPai}`, categoria);
   }
 
   public delete(id: number): Observable<boolean> {

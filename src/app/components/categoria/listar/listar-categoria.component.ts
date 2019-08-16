@@ -12,6 +12,7 @@ export class ListarCategoriaComponent implements OnInit {
   public idSelected: number;
   public check: boolean;
   public categorias: Categoria[];
+  public categoriasFilhas: Categoria[];
   public exibeEditar: boolean;
 
   constructor(private categoriaService: CategoriaService) { }
@@ -25,6 +26,7 @@ export class ListarCategoriaComponent implements OnInit {
     this.categoriaService.findAll().subscribe(
       data => {
         this.categorias = data;
+        console.log(this.categorias);
       }
     );
   }
@@ -51,7 +53,19 @@ export class ListarCategoriaComponent implements OnInit {
     }
   }
 
+  findByCategoriaPai(idCategoria: number): void {
+
+    this.categoriaService.findByCategoriaPai(idCategoria).subscribe( data => {
+      this.categoriasFilhas = data;
+    });
+  }
+
   receiveEventOutput(listaDecategoria): void {
     this.categorias = listaDecategoria;
+  }
+
+  habilitaBtns(): boolean {
+
+    return (this.categorias !== undefined && this.categorias.length > 0);
   }
 }

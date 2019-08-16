@@ -7,13 +7,15 @@ import { EditarCategoriaComponent } from './categoria/editar';
 import { ListarCategoriaComponent } from './categoria/listar';
 import { RemoverCategoriaComponent } from './categoria/remover';
 import { ShareModule, CategoriaService } from '../share';
+import { HierarquiaCategoriaComponent } from './categoria/hierarquia/hierarquia-categoria.component';
 
 @NgModule({
   declarations: [
     CadastrarCategoriaComponent,
     EditarCategoriaComponent,
     ListarCategoriaComponent,
-    RemoverCategoriaComponent
+    RemoverCategoriaComponent,
+    HierarquiaCategoriaComponent
   ],
   imports: [
     CommonModule,

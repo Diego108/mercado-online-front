@@ -6,21 +6,38 @@
       <th scope="col">#</th>
       <th scope="col">Id</th>
       <th scope="col">Nome</th>
+      <th scope="col">Hierarquia</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of categorias">
+    <tr *ngFor="let categoria of categorias" [class.success]="idSelected === categoria.id">
       <td>
         <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input glyphicon glyphicon-ok" type="checkbox" [checked]="isSelected(item.id)" (click)="selectCheckBox(item.id)">
+            <input class="form-check-input glyphicon glyphicon-ok" type="checkbox" [checked]="isSelected(categoria.id)" (click)="selectCheckBox(categoria.id)">
           </div>
         </div>
       </td>
-      <td>{{item.id}}</td>
-      <td>{{item.nome}}</td>
+      <td>{{categoria.id}}</td>
+      <td>{{categoria.nome}}</td>
+      <th>
+        <button type="button" class="btn btn-primary btn_categoria_hierarquia" data-toggle="modal" data-target="#modalExemplo2" >
+            <i class="material-icons">
+              remove_red_eye
+            </i>
+        </button>
+      </th>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <br/>
+        <p *ngIf="habilitaBtns()">Total de categorias cadastradas : {{categorias.length}}</p>
+        <p *ngIf="!habilitaBtns()">Nenhuma categoria encontrada.</p>
+      </td>
+    </tr>
+  </tfoot>
 </table>
 
 <a class="btn btn-primary btn_categoria_list" href="categoria/cadastrar">
@@ -30,19 +47,20 @@
     </i>
   </p>
 </a>
-<button class="btn btn-info btn_categoria_list" data-toggle="modal" data-target="#modalExemplo1">
+<button class="btn btn-info btn_categoria_list" data-toggle="modal" data-target="#modalExemplo1" [disabled]="!habilitaBtns()">
   <p>
     <i class="material-icons">
         create
     </i>
   </p>
 </button>
-<button type="button" class="btn btn-danger btn_categoria_list"  data-toggle="modal" data-target="#modalExemplo">
+<button type="button" class="btn btn-danger btn_categoria_list"  data-toggle="modal" data-target="#modalExemplo" [disabled]="!habilitaBtns()">
   <p>
     <i class="material-icons">
         delete_sweep
     </i>
   </p>
 </button>
+<app-hierarquia-categoria></app-hierarquia-categoria>
 <app-remover-categoria [id]="idSelected" (categorias)="receiveEventOutput($event)"></app-remover-categoria>
 <app-editar-categoria [id]="idSelected" (categorias)="receiveEventOutput($event)"></app-editar-categoria>

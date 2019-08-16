@@ -178,7 +178,7 @@
             },
             "development": {
               "devServerTarget": "mercado-online-front:build:development"
-            },
+            }
           }
         }
       }
