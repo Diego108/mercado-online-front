@@ -6,7 +6,6 @@
       <th scope="col">#</th>
       <th scope="col">Id</th>
       <th scope="col">Nome</th>
-      <th scope="col">Hierarquia</th>
     </tr>
   </thead>
   <tbody>
@@ -14,27 +13,20 @@
       <td>
         <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input glyphicon glyphicon-ok" type="checkbox" [checked]="isSelected(categoria.id)" (click)="selectCheckBox(categoria.id)">
+            <input class="form-check-input glyphicon glyphicon-ok" type="checkbox" [checked]="isSelected(categoria.id)" (click)="selectCheckBox(categoria.id, categoria.nome)">
           </div>
         </div>
       </td>
       <td>{{categoria.id}}</td>
       <td>{{categoria.nome}}</td>
-      <th>
-        <button type="button" class="btn btn-primary btn_categoria_hierarquia" data-toggle="modal" data-target="#modalExemplo2" >
-            <i class="material-icons">
-              remove_red_eye
-            </i>
-        </button>
-      </th>
     </tr>
   </tbody>
   <tfoot>
     <tr>
       <td colspan="3">
         <br/>
-        <p *ngIf="habilitaBtns()">Total de categorias cadastradas : {{categorias.length}}</p>
-        <p *ngIf="!habilitaBtns()">Nenhuma categoria encontrada.</p>
+        <p *ngIf="habilitaMsgQuantidade()">Total de categorias cadastradas : {{categorias.length}}</p>
+        <p *ngIf="!habilitaMsgQuantidade()">Nenhuma categoria encontrada.</p>
       </td>
     </tr>
   </tfoot>
@@ -61,6 +53,11 @@
     </i>
   </p>
 </button>
-<app-hierarquia-categoria></app-hierarquia-categoria>
+<button type="button" class="btn btn-primary btn_categoria_list" data-toggle="modal" data-target="#modalExemplo2" [disabled]="!habilitaBtnVisualizarHistorico()">
+  <i class="material-icons">
+    remove_red_eye
+  </i>
+</button>
+<app-hierarquia-categoria [id]="idSelected" [nomeCategoriaPai]="nomeCategoriaPai" [categorias]="categoriasFilhas"></app-hierarquia-categoria>
 <app-remover-categoria [id]="idSelected" (categorias)="receiveEventOutput($event)"></app-remover-categoria>
 <app-editar-categoria [id]="idSelected" (categorias)="receiveEventOutput($event)"></app-editar-categoria>
