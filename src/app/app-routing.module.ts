@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule , Routes } from '@angular/router';
 import { CategoriaRouting } from './components/categoria';
+import { LancamentoRoutingModule } from './components/lancamento';
 
 export const routes: Routes = [
   {
@@ -9,7 +10,8 @@ export const routes: Routes = [
     redirectTo: 'categoria/listar',
     pathMatch: 'full'
   },
-  ...CategoriaRouting
+  ...CategoriaRouting,
+  ...LancamentoRoutingModule
 ];
 
 @NgModule({

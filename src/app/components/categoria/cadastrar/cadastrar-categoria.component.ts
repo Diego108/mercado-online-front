@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
 
 import { CategoriaService, Categoria, NotificationType } from 'src/app/share';
+import { NotificationMessage } from 'src/app/share/notification/notification-message.service';
 
 @Component({
   selector: 'app-cadastrar-categoria',
@@ -15,7 +16,7 @@ export class CadastrarCategoriaComponent implements OnInit {
   public categorias: Categoria[];
   public idCategoriaPai: number;
 
-  constructor(private notifierService: NotifierService,
+  constructor(private notifierMessage: NotificationMessage,
               private categoriaService: CategoriaService) { }
 
   ngOnInit() {
@@ -37,23 +38,15 @@ export class CadastrarCategoriaComponent implements OnInit {
     }
 
     this.categoriaService.save(this.categoria).subscribe( data => {
-
       this.categoria = data;
-
       if (this.categoria !== null) {
         this.carregarLista();
         this.limparCampos();
-        this.notifierService.show({
-          type: NotificationType.SHOW_SUCCESS,
-          message: 'Categoria cadastrada com sucesso.',
-        });
+        this.notifierMessage.showMessageSucess('Categoria cadastrada com sucesso.')
       }
     }, error => {
       this.limparCampos();
-      this.notifierService.show({
-        type: NotificationType.SHOW_WARNING,
-        message: 'Categoria não foi salva, verifique se digitou da forma correta.'
-      });
+      this.notifierMessage.showMessageWarning('Categoria não foi salva, verifique se digitou da forma correta.')
     });
   }
 

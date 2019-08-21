@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { CadastrarCategoriaComponent } from './categoria/cadastrar';
 import { EditarCategoriaComponent } from './categoria/editar';
 import { ListarCategoriaComponent } from './categoria/listar';
 import { RemoverCategoriaComponent } from './categoria/remover';
+import { HierarquiaCategoriaComponent } from './categoria/hierarquia';
+import { CadastrarLancamentoComponent } from './lancamento/cadastrar/';
+import { ListarLancamentoComponent } from './lancamento/listar';
 import { ShareModule, CategoriaService } from '../share';
-import { HierarquiaCategoriaComponent } from './categoria/hierarquia/hierarquia-categoria.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { HierarquiaCategoriaComponent } from './categoria/hierarquia/hierarquia-
     EditarCategoriaComponent,
     ListarCategoriaComponent,
     RemoverCategoriaComponent,
-    HierarquiaCategoriaComponent
+    HierarquiaCategoriaComponent,
+    CadastrarLancamentoComponent,
+    ListarLancamentoComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +32,10 @@ import { HierarquiaCategoriaComponent } from './categoria/hierarquia/hierarquia-
     CadastrarCategoriaComponent,
     EditarCategoriaComponent,
     ListarCategoriaComponent,
-    RemoverCategoriaComponent
+    RemoverCategoriaComponent,
+    CadastrarLancamentoComponent,
+    ListarLancamentoComponent,
+    DashboardComponent
   ],
   providers : [
     CategoriaService

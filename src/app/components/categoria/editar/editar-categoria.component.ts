@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
 
 import { CategoriaService, Categoria, NotificationType } from 'src/app/share';
+import { NotificationMessage } from 'src/app/share/notification/notification-message.service';
 
 @Component({
   selector: 'app-editar-categoria',
@@ -20,7 +21,7 @@ export class EditarCategoriaComponent implements OnInit {
   public nomeCategoria: string;
   public categoria: Categoria;
 
-  constructor(private notifierService: NotifierService,
+  constructor(private notifierMessage: NotificationMessage,
               private categoriaService: CategoriaService) { }
 
   ngOnInit() {
@@ -39,18 +40,11 @@ export class EditarCategoriaComponent implements OnInit {
           this.categoriaService.findAll().subscribe(dataA => {
             this.categorias.emit(dataA);
           });
-          this.notifierService.show({
-            type: NotificationType.SHOW_SUCCESS,
-            message: 'Categoria editada com sucesso.',
-          });
+          this.notifierMessage.showMessageSucess('Categoria editada com sucesso.');
         }
       });
     } else {
-
-      this.notifierService.show({
-        type: NotificationType.SHOW_WARNING,
-        message: 'Favor selecionar alguma categoria e digitar um nome para atualizar.',
-      });
+      this.notifierMessage.showMessageSucess('Favor selecionar alguma categoria e digitar um nome para atualizar.');
     }
     this.limparDados();
   }
